@@ -1,0 +1,345 @@
+<?xml version="1.0" ?>
+
+<robot name="humanoid">
+    <link name="foot_link">
+        <inertial>
+            <origin
+            xyz="0.035 0.005 0.06"
+            rpy="0 0 0" />
+            <mass value="0.06" />
+            <inertia
+            ixx="8.5648E-05"
+            ixy="5.4058E-21"
+            ixz="-7.1621E-21"
+            iyy="8.8358E-05"
+            iyz="-3.7211E-06"
+            izz="3.2986E-05" />
+        </inertial>
+        <visual>
+            <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rocnikovy_projekt/meshes/foot_Link.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="">
+                <color rgba="0.79216 0.81961 0.93333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rocnikovy_projekt/meshes/foot_Link.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="hub1_Link">
+        <inertial>
+        <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+        <mass value="0.003" />
+        <inertia
+        ixx="8.5507E-08"
+        ixy="1.5669E-16"
+        ixz="-2.3686E-15"
+        iyy="8.5924E-08"
+        iyz="-1.1901E-11"
+        izz="1.5714E-07" />
+        </inertial>
+        <visual>
+            <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rocnikovy_projekt/meshes/hub_Link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.79216 0.81961 0.93333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rocnikovy_projekt/meshes/hub_Link.STL" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="hub1_joint" type="fixed">
+        <origin
+        xyz="0.035 0.053 0.045"
+        rpy="-3.1415 0 0" />
+        <parent link="foot_link" />
+        <child link="hub1_Link" />
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="servo1_Link">
+        <inertial>
+            <origin
+            xyz="0 0 -0.01"
+            rpy="0 0 0" />
+            <mass value="0.0516" />
+            <inertia
+            ixx="1.4306E-05"
+            ixy="-1.2844E-08"
+            ixz="1.8664E-09"
+            iyy="7.8161E-06"
+            iyz="2.3787E-07"
+            izz="1.2381E-05" />
+        </inertial>
+        <visual>
+            <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rocnikovy_projekt/meshes/base_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.79216 0.81961 0.93333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rocnikovy_projekt/meshes/base_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="servo1_joint" type="revolute">
+        <origin
+        xyz="0 0 -0.0115"
+        rpy="-1.5708 0 3.1415" />
+        <parent link="hub1_Link" />
+        <child link="servo1_Link" />
+        <axis xyz="0 1 0" />
+        <limit
+        lower="-0.3490"
+        upper="0.3490"
+        effort="2"
+        velocity="10" />
+    </joint>
+
+        <link name="servo2_Link">
+            <inertial>
+                <origin
+                xyz="0 0 -0.01"
+                rpy="0 0 0" />
+                <mass value="0.0516" />
+                <inertia
+                ixx="1.4306E-05"
+                ixy="-1.2843E-08"
+                ixz="1.8664E-09"
+                iyy="7.8161E-06"
+                iyz="2.3787E-07"
+                izz="1.2381E-05" />
+            </inertial>
+            <visual>
+                <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://rocnikovy_projekt/meshes/base_link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.79216 0.81961 0.93333 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://rocnikovy_projekt/meshes/base_link.STL" />
+                </geometry>
+            </collision>
+        </link>
+
+        <joint name="servo2_joint" type="fixed">
+            <origin
+            xyz="0 0.032 -0.0225"
+            rpy="3.1415 0 1.5708" />
+            <parent
+            link="servo1_Link" />
+            <child
+            link="servo2_Link" />
+            <axis
+            xyz="0 0 0" />
+            </joint>
+
+
+        <link name="socket_Link">
+            <inertial>
+                <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+                <mass value="0.0032352" />
+                <inertia
+                ixx="4.8034E-07"
+                ixy="1.9832E-10"
+                ixz="1.3579E-22"
+                iyy="6.6054E-07"
+                iyz="1.1488E-22"
+                izz="2.0157E-07" />
+            </inertial>
+            <visual>
+                <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://rocnikovy_projekt/meshes/socket_Link.STL" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <material name="">
+                    <color rgba="0.79216 0.81961 0.93333 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://rocnikovy_projekt/meshes/socket_Link.STL" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>
+        </link>
+
+        <joint name="socket_joint" type="fixed">
+            <origin
+            xyz="0.019 -0.019 -0.01"
+            rpy="0 1.5708 1.5708" />
+            <parent link="servo2_Link" />
+            <child link="socket_Link" />
+            <axis xyz="0 0 0" />
+        </joint>
+
+    <link name="hub2_Link">
+        <inertial>
+            <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+            <mass value="0.003" />
+            <inertia
+            ixx="8.5507E-08"
+            ixy="-1.517E-16"
+            ixz="-4.3881E-15"
+            iyy="8.5924E-08"
+            iyz="-1.1905E-11"
+            izz="1.5714E-07" />
+        </inertial>
+        <visual>
+            <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rocnikovy_projekt/meshes/hub_Link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.79216 0.81961 0.93333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rocnikovy_projekt/meshes/hub_Link.STL" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="hub2_joint" type="revolute">
+        <origin
+        xyz="0 -0.0115 0"
+        rpy="1.5708 0 0" />
+        <parent link="servo2_Link" />
+        <child link="hub2_Link" />
+        <axis xyz="0 0 -1" />
+        <limit
+        lower="-0.785"
+        upper="0.6412"
+        effort="2"
+        velocity="8" />
+    </joint>
+
+    <link name="shin_Link">
+        <inertial>
+            <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+            <mass value="0.07195" />
+            <inertia
+            ixx="0.00010985"
+            ixy="-1.8144E-12"
+            ixz="5.1258E-12"
+            iyy="8.2529E-05"
+            iyz="-2.9834E-08"
+            izz="3.6595E-05" />
+        </inertial>
+        <visual>
+            <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rocnikovy_projekt/meshes/shin_Link.STL" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="">
+                <color rgba="0.79216 0.81961 0.93333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rocnikovy_projekt/meshes/shin_Link.STL" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="shin_joint" type="fixed">
+        <origin
+        xyz="-0.019 -0.1284 0.0169"
+        rpy="-1.5708 0 0" />
+        <parent link="hub2_Link" />
+        <child link="shin_Link" />
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <transmission name="trans_hub1_joint">
+          <type>transmission_interface/SimpleTransmission</type>
+          <joint name="servo1_joint">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+          </joint>
+          <actuator name="motor1_hub_joint">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+          </actuator>
+    </transmission>
+
+    <transmission name="trans_hub2_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="hub2_joint">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor2_hub_joint">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+
+    <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <robotNamespace>/humanoid</robotNamespace>
+    </plugin>
+  </gazebo>
+</robot>
