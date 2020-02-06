@@ -1,2 +1,1 @@
-# My Robot Manipulator
-
+# Rocnikovy projekt - simulacia humanoidneho robota
