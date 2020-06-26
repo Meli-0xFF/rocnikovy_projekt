@@ -17,31 +17,49 @@
 
     <group ns="/humanoid">
         <!-- Robot model -->
-        <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find rocnikovy_projekt)/urdf/humanoid.urdf'" />
+        <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find rocnikovy_projekt)/urdf/humanoid.xacro'" />
         <arg name="x" default="0"/>
         <arg name="y" default="0"/>
-        <arg name="z" default="0"/>
+        <arg name="z" default="0.3"/>
         
         <!-- Spawn the robot model -->
         <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
               args="-urdf -param robot_description -model humanoid -x $(arg x) -y $(arg y) -z $(arg z)" />
 
-	<!-- Load controllers -->
-        <rosparam command="load" file="$(find rocnikovy_projekt)/config/joints.yaml" />
+        <!-- Load controllers -->
+         <rosparam command="load" file="$(find rocnikovy_projekt)/config/joints.yaml" />
         
         <!-- Controllers -->
         <node name="controller_spawner" pkg="controller_manager" type="spawner"
             respawn="false" output="screen" ns="/humanoid"
             args="
             joint_state_controller
-            joint1_position_controller
-            joint2_position_controller
+            left_hip_position_controller
+            left_hip_servo_position_controller
+            left_thigh_position_controller
+            left_shin_position_controller
+            left_ankle_position_controller
+            left_foot_position_controller
+            right_hip_position_controller
+            right_hip_servo_position_controller
+            right_thigh_position_controller
+            right_shin_position_controller
+            right_ankle_position_controller
+            right_foot_position_controller
             --timeout 60">
         </node>
-<!-- joint1_position_controller -->
+
         <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
             <remap from="/joint_states" to="/humanoid/joint_states" />
         </node>
+
+        <arg name="config_file" default="/home/meli/conf/config.ini"/>
+
+            <node pkg="rocnikovy_projekt" type="imu_yaw_publisher.py"
+            name="imu_yaw_publisher" args="$(arg config_file)" output="screen"/>
+
+            <node pkg="rocnikovy_projekt" type="init"
+            name="walk_node" args="" output="screen"/>
     </group>
     
 </launch>

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="pelvis" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <link
+            name="base_link">
+        <inertial>
+            <origin
+                    xyz="8.2334E-06 -0.0035862 -0.0041456"
+                    rpy="0 0 0" />
+            <mass
+                    value="0.1973" />
+            <inertia
+                    ixx="3.8375E-05"
+                    ixy="-1.8663E-09"
+                    ixz="3.853E-08"
+                    iyy="0.00010445"
+                    iyz="2.3787E-07"
+                    izz="9.554E-05" />
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/pelvis_link.STL" />
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="0.69804 0.69804 0.69804 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/pelvis_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <link
+            name="left_hip_link">
+        <inertial>
+            <origin
+                    xyz="4.1959E-14 -0.0015544 0.02042"
+                    rpy="0 0 0" />
+            <mass
+                    value="0.0628" />
+            <inertia
+                    ixx="6.3024E-05"
+                    ixy="-1.2716E-15"
+                    ixz="-1.9084E-15"
+                    iyy="1.705E-05"
+                    iyz="-7.4568E-08"
+                    izz="6.3748E-05" />
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/left_hip_link.STL" />
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="0.69804 0.69804 0.69804 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/left_hip_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint
+            name="left_hip_joint"
+            type="revolute">
+        <origin
+                xyz="0.0605 0 -0.03048"
+                rpy="3.1416 0 0.44455" />
+        <parent
+                link="base_link" />
+        <child
+                link="left_hip_link" />
+        <axis
+                xyz="0 0 1" />
+        <limit
+                lower="-1"
+                upper="1"
+                effort="2"
+                velocity="0.5" />
+    </joint>
+
+    <transmission name="trans_left_hip">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="left_hip_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor_left_hip">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <link
+            name="left_hip_servo_link">
+        <inertial>
+            <origin
+                    xyz="-0.00022073 -0.010829 -0.0019615"
+                    rpy="0 0 0" />
+            <mass
+                    value="0.1072" />
+            <inertia
+                    ixx="2.6938E-05"
+                    ixy="2.2503E-07"
+                    ixz="3.7327E-09"
+                    iyy="1.623E-05"
+                    iyz="2.2528E-07"
+                    izz="2.751E-05" />
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/left_hip_servo_link.STL" />
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="0.69804 0.69804 0.69804 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/left_hip_servo_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint
+            name="left_hip_servo_joint"
+            type="revolute">
+        <origin
+                xyz="0 0 0.03902"
+                rpy="-1.5708 -0.053854 -3.1416" />
+        <parent
+                link="left_hip_link" />
+        <child
+                link="left_hip_servo_link" />
+        <axis
+                xyz="0 0 1" />
+        <limit
+                lower="-1"
+                upper="1"
+                effort="2"
+                velocity="0.5" />
+    </joint>
+
+    <transmission name="trans_left_hip_servo">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="left_hip_servo_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor_left_hip_servo">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <link
+            name="right_hip_link">
+        <inertial>
+            <origin
+                    xyz="4.05750502641133E-11 0.00155391487199414 0.0204201314876415"
+                    rpy="0 0 0" />
+            <mass
+                    value="0.0628" />
+            <inertia
+                    ixx="6.30242552027685E-05"
+                    ixy="-2.22070142968391E-15"
+                    ixz="-2.19765597267739E-15"
+                    iyy="1.7050000604469E-05"
+                    iyz="7.4543752491888E-08"
+                    izz="6.37480504244599E-05" />
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/right_hip_link.STL" />
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/right_hip_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint
+            name="right_hip_joint"
+            type="revolute">
+        <origin
+                xyz="-0.0605 0 -0.03048"
+                rpy="-3.1416 0 2.7299" />
+        <parent
+                link="base_link" />
+        <child
+                link="right_hip_link" />
+        <axis
+                xyz="0 0 1" />
+        <limit
+                lower="-1"
+                upper="1"
+                effort="2"
+                velocity="0.5" />
+    </joint>
+
+    <transmission name="trans_right_hip">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_hip_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor_right_hip">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <link
+            name="right_hip_servo_link">
+        <inertial>
+            <origin
+                    xyz="0.00019044 -0.010829 -0.0019918"
+                    rpy="0 0 0" />
+            <mass
+                    value="0.1072" />
+            <inertia
+                    ixx="2.6938E-05"
+                    ixy="-2.5072E-07"
+                    ixz="3.7327E-09"
+                    iyy="1.623E-05"
+                    iyz="2.5096E-07"
+                    izz="2.751E-05" />
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/right_hip_servo_link.STL" />
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="0.69804 0.69804 0.69804 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/right_hip_servo_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint
+            name="right_hip_servo_joint"
+            type="revolute">
+        <origin
+                xyz="0 0 0.03902"
+                rpy="-1.5708 -0.056122 0" />
+        <parent
+                link="right_hip_link" />
+        <child
+                link="right_hip_servo_link" />
+        <axis
+                xyz="0 0 1" />
+        <limit
+                lower="0"
+                upper="0"
+                effort="2"
+                velocity="0.5" />
+    </joint>
+
+    <transmission name="trans_right_hip_servo">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_hip_servo_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor_right_hip_servo">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+</robot>

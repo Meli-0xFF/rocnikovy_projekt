@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<robot name="imu" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<xacro:macro name="insert_gazebo_part_hector">
+  
+  <!-- David Cesenek -->
+  <!-- cesendav@fel.cvut.cz -->
+  <!-- Custom implementation of IMU model based on plugin provided by Hector team. -->
+  <!-- Documentation: http://wiki.ros.org/hector_gazebo_plugins  -->
+
+  <gazebo> 
+        <plugin filename="libhector_gazebo_ros_imu.so" name="hector_imu_plugin">
+            <alwaysOn>true</alwaysOn>
+            <bodyName>imu_link</bodyName>
+            <topicName>imu</topicName>
+	
+            <!-- This ROS servic does NOT reset the yaw noise model, but only gyro noise model (uselees if yaw noise model only is used)-->	
+            <serviceName>/imu/calibate</serviceName>
+            <gaussianNoise>0.0</gaussianNoise>
+            <updateRate>100.0</updateRate> 
+            <frameName>imu_link</frameName>
+            
+            <!-- Accelerometer config, 3 values are corresponding to x,y,z axis respectively -->
+            <accelOffset>0 0 0 </accelOffset> 
+            <accelGaussianNoise>0 0 0</accelGaussianNoise>  <!-- amount of additive white noise -->
+            <accelDrift>0 0 0 </accelDrift> <!-- standard deviation of the acceleration (bias) drift error --> 
+            <accelDriftFrequency>0 0 0</accelDriftFrequency> <!-- mean frequency of the acceleration drift --> 
+
+            <!-- Gyroscope config -->
+            <rateOffset>0 0 0</rateOffset>
+            <rateGaussianNoise> 0.0 0.0 0.0</rateGaussianNoise>
+            <rateDrift>0 0 0 </rateDrift>
+            <rateDriftFrequency> 0.0 0.0 0.0</rateDriftFrequency> 
+
+            <!-- Separately, there is an error model also for YAW angle -->
+            <yawOffset> 0 </yawOffset>
+            <yawGaussianNoise> 0.00215 </yawGaussianNoise>
+            
+            <!--Recommendation: set to zero and use the setter funcitonality in result_comparison script. -->        
+	          <yawDrift> 0 </yawDrift>
+            <yawDriftFrequency> 0.00 </yawDriftFrequency> -->
+          
+          </plugin>
+    </gazebo> 
+  </xacro:macro> 
+</robot>

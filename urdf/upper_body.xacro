@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="upper_body" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <link
+            name="hull_link">
+        <inertial>
+            <origin
+                    xyz="2.5418516282296E-05 0.0374206937207158 0.000344702942498735"
+                    rpy="0 0 0" />
+            <mass
+                    value="0.0639086224737751" />
+            <inertia
+                    ixx="1.90280193067945E-05"
+                    ixy="-1.28435047831282E-08"
+                    ixz="-1.86631678770086E-09"
+                    iyy="1.14627305380957E-05"
+                    iyz="-2.37884514500283E-07"
+                    izz="1.60621283125343E-05" />
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/hull_link.STL" />
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/hull_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint
+            name="hull_joint"
+            type="revolute">
+        <origin
+                xyz="0 0 0.03648"
+                rpy="1.5708 0 0.030352" />
+        <parent
+                link="base_link" />
+        <child
+                link="hull_link" />
+        <axis
+                xyz="0 1 0" />
+        <limit
+                lower="0"
+                upper="0"
+                effort="0"
+                velocity="0" />
+    </joint>
+    <link
+            name="chest_link">
+        <inertial>
+            <origin
+                    xyz="-9.66570496056159E-06 0.00288009622934873 -0.071697733414252"
+                    rpy="0 0 0" />
+            <mass
+                    value="0.1927971051757" />
+            <inertia
+                    ixx="9.27983713444218E-05"
+                    ixy="2.26047253694979E-09"
+                    ixz="-8.82904811431671E-09"
+                    iyy="0.000163840202045114"
+                    iyz="-1.10733103829886E-06"
+                    izz="0.000148160802555675" />
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/chest_link.STL" />
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/chest_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint
+            name="chest_joint"
+            type="revolute">
+        <origin
+                xyz="0 0.02852 0"
+                rpy="1.5708 0 -0.0036334" />
+        <parent
+                link="hull_link" />
+        <child
+                link="chest_link" />
+        <axis
+                xyz="0 1 0" />
+        <limit
+                lower="0"
+                upper="0"
+                effort="0"
+                velocity="0" />
+    </joint>
+    <link
+            name="left_shoulder_link">
+        <inertial>
+            <origin
+                    xyz="3.7406E-10 -5.0726E-06 0.0081028"
+                    rpy="0 0 0" />
+            <mass
+                    value="0.003" />
+            <inertia
+                    ixx="8.5507E-08"
+                    ixy="1.5322E-16"
+                    ixz="-2.1232E-15"
+                    iyy="8.5924E-08"
+                    iyz="-1.1901E-11"
+                    izz="1.5714E-07" />
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/left_shoulder_link.STL" />
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="0.69804 0.69804 0.69804 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/left_shoulder_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint
+            name="left_shoulder_joint"
+            type="revolute">
+        <origin
+                xyz="0.07 0.015537 -0.09"
+                rpy="-1.5708 -0.74417 0" />
+        <parent
+                link="chest_link" />
+        <child
+                link="left_shoulder_link" />
+        <axis
+                xyz="0 0 1" />
+        <limit
+                lower="0"
+                upper="0"
+                effort="0"
+                velocity="0" />
+    </joint>
+    <link
+            name="right_shoulder_link">
+        <inertial>
+            <origin
+                    xyz="3.7236E-10 -5.0727E-06 0.0079484"
+                    rpy="0 0 0" />
+            <mass
+                    value="0.003" />
+            <inertia
+                    ixx="8.5507E-08"
+                    ixy="1.8998E-16"
+                    ixz="-2.0804E-15"
+                    iyy="8.5924E-08"
+                    iyz="-1.1901E-11"
+                    izz="1.5714E-07" />
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/right_shoulder_link.STL" />
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="0.69804 0.69804 0.69804 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/right_shoulder_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint
+            name="right_shoulder_joint"
+            type="revolute">
+        <origin
+                xyz="-0.07 0.015691 -0.09"
+                rpy="-1.5708 -0.20031 0" />
+        <parent
+                link="chest_link" />
+        <child
+                link="right_shoulder_link" />
+        <axis
+                xyz="0 0 1" />
+        <limit
+                lower="0"
+                upper="0"
+                effort="0"
+                velocity="0" />
+    </joint>
+</robot>

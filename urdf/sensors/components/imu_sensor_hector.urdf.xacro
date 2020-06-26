@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<robot name="imu" xmlns:xacro="http://www.ros.org/wiki/xacro">
+   <xacro:include	filename="$(find rocnikovy_projekt)/urdf/sensors/components/imu_sensor_hector.gazebo.xacro"/>
+   <xacro:include	filename="$(find rocnikovy_projekt)/urdf/sensors/components/imu_sensor.config.xacro"/>
+
+   <link name="imu_link">
+     
+     <visual>
+        <origin xyz="${imu_link_x} ${imu_link_y} ${imu_link_z}" rpy="${imu_link_r} ${imu_link_p} ${imu_link_y}"/>
+        <geometry>
+          <box size="${imu_link_length} ${imu_link_width} ${imu_link_height}"/>
+        </geometry>
+        <material name="blue">
+          <color rgba="0 0 0.8 0.5"/>
+        </material>
+     </visual>
+      
+      
+      <collision> <!-- assumption: IMU will be integrated in into the robot's chasis(body). Thus use the same values as for <visual> -->
+          <origin xyz="${imu_link_x} ${imu_link_y} ${imu_link_z}" rpy="${imu_link_r} ${imu_link_p} ${imu_link_y}"/>
+          <geometry>
+            <box size="${imu_link_length} ${imu_link_width} ${imu_link_height}" />
+          </geometry>
+      </collision>
+
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0"/>
+           <mass value="${imu_link_mass}"/>
+           <xacro:box_inertia m="${imu_link_mass}" x="${imu_link_length}" y="${imu_link_width}" z="${imu_link_height}"  />
+       </inertial>
+   </link>
+
+   <joint name="joint_imu" type="fixed">
+      <axis xyz="0 0.0 0.0"/>
+      <origin xyz="-0.08 0 0 " rpy="0 0 0 "/>
+      <parent link="base_link" />
+      <child link="imu_link" />
+      
+    </joint>
+
+   <xacro:insert_gazebo_part_hector />
+
+</robot>

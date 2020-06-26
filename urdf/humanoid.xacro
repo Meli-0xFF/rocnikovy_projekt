@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="humanoid" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:include filename="$(find rocnikovy_projekt)/urdf/pelvis.xacro" />
+    <xacro:include filename="$(find rocnikovy_projekt)/urdf/humanoid.gazebo" />
+    <xacro:include filename="$(find rocnikovy_projekt)/urdf/sensors/imu_hector.xacro" />
+    <xacro:include filename="$(find rocnikovy_projekt)/urdf/left_leg.xacro" />
+    <xacro:include filename="$(find rocnikovy_projekt)/urdf/right_leg.xacro" />
+   <!-- <xacro:include filename="$(find rocnikovy_projekt)/urdf/upper_body.xacro" />-->
+</robot>

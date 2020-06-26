@@ -3,13 +3,54 @@
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated />
   </component>
-  <component name="CMakeSettings">
+  <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95d31951-59a2-4870-9294-e649e1d544f4" name="Default Changelist" comment="" />
+    <list default="true" id="95d31951-59a2-4870-9294-e649e1d544f4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msg/ErrorCoordinates2.msg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msg/ImuYaw.msg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/error_publisher.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/imu_yaw_publisher.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/init.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/rotate_left" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/urdf/humanoid.gazebo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/urdf/humanoid.xacro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/urdf/left_leg.xacro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/urdf/pelvis.xacro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/urdf/right_leg.xacro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/urdf/sensors/bno055.gazebo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/urdf/sensors/bno055.xacro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/urdf/sensors/humanoid_imu.gazebo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/urdf/sensors/humanoid_imu.xacro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/urdf/sensors/imu_hector.xacro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/urdf/upper_body.xacro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/rocnikovy_projekt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/rocnikovy_projekt.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/joints.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/joints.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launch/spawn.launch" beforeDir="false" afterPath="$PROJECT_DIR$/launch/spawn.launch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meshes/base_link.STL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/meshes/foot_Link.STL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/meshes/hub1_Link.STL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/meshes/hub2_Link.STL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/meshes/hub_Link.STL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/meshes/servo1_Link.STL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/meshes/servo2_Link.STL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/meshes/shin_Link.STL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/meshes/socket_Link.STL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.xml" beforeDir="false" afterPath="$PROJECT_DIR$/package.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/talker.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/talker.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/urdf/humanoid.urdf" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,17 +59,34 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1Wnnm33ENKaZXpuTc0AuoVliUR4" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/leg_6_2_2020/urdf/leg_6_2_2020.urdf" />
-    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -46,28 +104,47 @@
       <workItem from="1580294448835" duration="5229000" />
       <workItem from="1580375641463" duration="3996000" />
       <workItem from="1580818638650" duration="44406000" />
+      <workItem from="1585078808045" duration="1493000" />
+      <workItem from="1586162949901" duration="2424000" />
+      <workItem from="1588541240093" duration="1195000" />
+      <workItem from="1591649834940" duration="1340000" />
+      <workItem from="1592312027448" duration="4841000" />
+      <workItem from="1592318394375" duration="4771000" />
+      <workItem from="1592513308960" duration="8338000" />
+      <workItem from="1592805798792" duration="16299000" />
+      <workItem from="1592900719382" duration="2598000" />
+      <workItem from="1592905329683" duration="14932000" />
+      <workItem from="1592945320516" duration="12970000" />
+      <workItem from="1593030324475" duration="8501000" />
+      <workItem from="1593076388800" duration="7432000" />
+      <workItem from="1593162729982" duration="6914000" />
+      <workItem from="1593171754681" duration="1416000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.launch" />
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.xacro" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1580984559820">
+    <state x="384" y="198" width="654" height="396" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593168782250">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1580984559820" />
-    <state x="67" y="27" key="SettingsEditor" timestamp="1580984985610">
+    <state x="384" y="198" width="654" height="396" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1299.741@67.27.1299.741" timestamp="1593168782250" />
+    <state x="452" y="249" width="518" height="294" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1592821121439">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="67" y="27" key="SettingsEditor/67.27.1299.741@67.27.1299.741" timestamp="1580984985610" />
-    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1580985421631">
+    <state x="452" y="249" width="518" height="294" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/67.27.1299.741@67.27.1299.741" timestamp="1592821121439" />
+    <state x="191" y="38" key="SettingsEditor" timestamp="1592806024260">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup/67.27.1299.741@67.27.1299.741" timestamp="1580985421631" />
+    <state x="191" y="38" key="SettingsEditor/67.27.1299.741@67.27.1299.741" timestamp="1592806024260" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1592910550718">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/67.27.1299.741@67.27.1299.741" timestamp="1592910550718" />
   </component>
 </project>

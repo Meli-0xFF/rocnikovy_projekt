@@ -1,0 +1,36 @@
+<robot name="darwin" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find rocnikovy_projekt)/urdf/sensors/bno055.gazebo" />
+
+  <xacro:macro name="bno055" params="name parent *origin"> 
+    <link name="${name}_link">
+      <collision>
+        <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.0215 0.023 0.026"/>
+        </geometry>
+      </collision>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.0215 0.023 0.026"/>
+        </geometry>
+        <material name="black"/>
+      </visual>
+      <inertial>
+        <mass value="0.012" />
+        <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+        <inertia ixx="0.00000001" ixy="0" ixz="0" iyy="0.00000001" iyz="0.0" izz="0.00000001" />
+      </inertial>
+    </link>
+
+    <joint name="${name}_joint" type="fixed">
+      <xacro:insert_block name="origin" />
+      <parent link="${parent}"/>
+      <child link="${name}_link"/>
+    </joint>
+    
+    <xacro:bno055_gazebo name="${name}"/>
+  </xacro:macro>
+</robot>
+

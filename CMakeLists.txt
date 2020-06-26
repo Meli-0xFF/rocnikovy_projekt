@@ -12,6 +12,10 @@ find_package(catkin REQUIRED COMPONENTS
   controller_manager
   joint_state_controller
   robot_state_publisher
+  rospy
+  std_msgs
+  geometry_msgs
+  message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -48,11 +52,13 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
+ add_message_files(
+   FILES
+    ErrorCoordinates2.msg
+    ImuYaw.msg
 #   Message1.msg
 #   Message2.msg
-# )
+ )
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -69,10 +75,12 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
+ generate_messages(
+   DEPENDENCIES
+     std_msgs
+     geometry_msgs
 #   std_msgs  # Or other packages containing msgs
-# )
+ )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -104,6 +112,9 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
+LIBRARIES imu_simulation_framework
+CATKIN_DEPENDS rospy std_msg
+DEPENDS system_lib
 #  INCLUDE_DIRS include
 #  LIBRARIES mrm_description
 #  CATKIN_DEPENDS urdf
@@ -135,9 +146,9 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/mrm_description_node.cpp)
-add_executable(talker src/talker.cpp)
-target_link_libraries(talker ${catkin_LIBRARIES})
-add_dependencies(talker rocnikovy_projekt)
+add_executable(init src/init.cpp)
+target_link_libraries(init ${catkin_LIBRARIES})
+add_dependencies(init rocnikovy_projekt)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -163,10 +174,11 @@ add_dependencies(talker rocnikovy_projekt)
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
-# install(PROGRAMS
-#   scripts/my_python_script
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
+install(PROGRAMS
+        src/error_publisher.py
+        src/imu_yaw_publisher.py
+    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 ## Mark executables and/or libraries for installation
 # install(TARGETS ${PROJECT_NAME} ${PROJECT_NAME}_node

@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<robot>
+    <!--
+   <gazebo reference="left_hip_link">
+        <selfCollide>True</selfCollide>
+       <turnGravityOff>False</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="left_hip_servo_link">
+        <selfCollide>True</selfCollide>
+        <turnGravityOff>False</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="left_thigh_link">
+        <selfCollide>True</selfCollide>
+        <turnGravityOff>False</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="left_shin_link">
+        <selfCollide>True</selfCollide>
+        <turnGravityOff>False</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="left_ankle_link">
+        <selfCollide>True</selfCollide>
+        <turnGravityOff>False</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="left_foot_link">
+        <selfCollide>True</selfCollide>
+        <turnGravityOff>False</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="right_hip_link">
+        <selfCollide>True</selfCollide>
+        <turnGravityOff>False</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="right_hip_servo_link">
+        <selfCollide>True</selfCollide>
+        <turnGravityOff>False</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="right_thigh_link">
+        <selfCollide>True</selfCollide>
+        <turnGravityOff>False</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="right_shin_link">
+        <selfCollide>True</selfCollide>
+        <turnGravityOff>False</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="right_ankle_link">
+        <selfCollide>True</selfCollide>
+        <turnGravityOff>False</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="imu_link">
+        <selfCollide>True</selfCollide>
+        <turnGravityOff>False</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="right_foot_link">
+        <selfCollide>True</selfCollide>
+        <turnGravityOff>False</turnGravityOff>
+    </gazebo>
+-->
+    <gazebo reference="left_hip_joint">
+        <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+
+    <gazebo reference="left_hip_servo_joint">
+        <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+
+    <gazebo reference="left_thigh_joint">
+        <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+
+    <gazebo reference="left_shin_joint">
+        <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+
+    <gazebo reference="left_ankle_joint">
+        <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+
+    <gazebo reference="left_foot_joint">
+        <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+
+    <gazebo reference="right_hip_joint">
+        <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+
+    <gazebo reference="right_hip_servo_joint">
+        <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+
+    <gazebo reference="right_thigh_joint">
+        <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+
+    <gazebo reference="right_shin_joint">
+        <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+
+    <gazebo reference="right_ankle_joint">
+        <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+
+    <gazebo reference="right_foot_joint">
+        <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/humanoid</robotNamespace>
+        </plugin>
+    </gazebo>
+</robot>

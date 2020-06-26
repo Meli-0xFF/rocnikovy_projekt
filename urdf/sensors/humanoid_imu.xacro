@@ -1,0 +1,25 @@
+<robot name="darwin" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find rocnikovy_projekt)/urdf/sensors/humanoid_imu.gazebo" />
+ 
+  <!-- onboard IMU sensor -->
+  <link name="humanoid_accel">
+  </link>
+
+  <joint name="j_humanoid_accel" type="fixed">
+    <parent link="base_link"/>
+    <child link="humanoid_accel"/>
+    <origin xyz="0.0 -0.03 0.01" rpy="-1.5707 -1.5707 0" />
+  </joint>
+
+  <link name="humanoid_gyro">
+  </link>
+
+  <joint name="j_humanoid_gyro" type="fixed">
+    <parent link="base_link"/>
+    <child link="humanoid_gyro"/>
+    <origin xyz="0.0 -0.03 -0.01" rpy="-1.5707 -1.5707 0" />
+  </joint>
+
+</robot>
+

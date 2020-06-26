@@ -1,0 +1,32 @@
+<?xml version="1.0"  encoding="utf-8" ?>
+<robot name="imu" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<!-- Configuration of a simple IMU model with additive white noise based on Gazebo IMU generic plugin.
+David Cesenek, cesendav@fel.cvut.cz,
+-->     
+    <xacro:property name="imu_link_mass" value="0.0002"/>
+    <xacro:property name="imu_link_x" value="0.0"/>
+    <xacro:property name="imu_link_y" value="0.0"/>
+    <xacro:property name="imu_link_z" value="0.2"/>
+    <xacro:property name="imu_link_r" value="0.0"/>
+    <xacro:property name="imu_link_p" value="0.0"/>
+    <xacro:property name="imu_link_y" value="0.0"/>
+    <xacro:property name="imu_link_length" value="0.01"/>
+    <xacro:property name="imu_link_width" value="0.01"/>
+    <xacro:property name="imu_link_height" value="0.002"/> 
+    
+    <xacro:property name="imu_updateRate" value="100"/> <!-- update rate of checking, if there is a new imu topic-->
+    <xacro:property name="imu_updateRateHZ" value="100"/>  <!-- update rate of simulated sensor, in Hz-->
+
+    <xacro:property name="imu_gaussian_noise" value="0.00215"/>
+    <xacro:property name="imu_xyzOffset" value="0 0 0"/> 
+    <xacro:property name="imu_rpyOffset" value="0 0 0"/>
+
+    <xacro:macro name="box_inertia" params="m x y z">
+        <inertia ixx="${m * (y * y + z * z) / 12}" ixy="0" ixz="0"
+                 iyy="${m * (x * x + z * z) / 12}" iyz="0"
+                 izz="${m * (x * x + z * z) / 12}"
+        />
+    </xacro:macro>
+</robot>
+

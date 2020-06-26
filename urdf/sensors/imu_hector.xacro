@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<robot name="imu_sensor" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+	<xacro:include filename="$(find rocnikovy_projekt)/urdf/sensors/components/imu_sensor_hector.urdf.xacro" />
+	
+</robot>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="left_leg" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <link
+            name="left_thigh_link">
+        <inertial>
+            <origin
+                    xyz="1.69171554542658E-09 -0.0607283296426261 0.00159765609901391"
+                    rpy="0 0 0" />
+            <mass
+                    value="0.1249" />
+            <inertia
+                    ixx="0.00020875632994922"
+                    ixy="1.2818107857486E-12"
+                    ixz="-8.38700247083159E-13"
+                    iyy="8.37276019948441E-05"
+                    iyz="8.31465783649004E-09"
+                    izz="0.000136918942523945" />
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/left_thigh_link.STL" />
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/left_thigh_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint
+            name="left_thigh_joint"
+            type="revolute">
+        <origin
+                xyz="0 -0.0225 -0.01715"
+                rpy="1.5708 -1.3439 -1.5708" />
+        <parent
+                link="left_hip_servo_link" />
+        <child
+                link="left_thigh_link" />
+        <axis
+                xyz="0 0 1" />
+        <limit
+                lower="-3.14"
+                upper="3.14"
+                effort="2"
+                velocity="0.5" />
+    </joint>
+
+    <transmission name="trans_left_thigh">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="left_thigh_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor_left_thigh">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <link
+            name="left_shin_link">
+        <inertial>
+            <origin
+                    xyz="-1.0078E-05 -0.051004 -0.0001917"
+                    rpy="0 0 0" />
+            <mass
+                    value="0.1613" />
+            <inertia
+                    ixx="0.00018043"
+                    ixy="-1.2865E-08"
+                    ixz="1.8773E-09"
+                    iyy="6.2108E-05"
+                    iyz="2.8146E-07"
+                    izz="0.00013852" />
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/left_shin_link.STL" />
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="0.69804 0.69804 0.69804 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/left_shin_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint
+            name="left_shin_joint"
+            type="revolute">
+        <origin
+                xyz="0 -0.11 0"
+                rpy="0 0 0.53665" />
+        <parent
+                link="left_thigh_link" />
+        <child
+                link="left_shin_link" />
+        <axis
+                xyz="0 0 1" />
+        <limit
+                lower="-3.14"
+                upper="3.14"
+                effort="2"
+                velocity="0.5" />
+    </joint>
+
+    <transmission name="trans_left_shin">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="left_shin_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor_left_shin">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <link
+            name="left_ankle_link">
+        <inertial>
+            <origin
+                    xyz="-0.0116740866089173 0.0149960300324561 -0.000529265273914892"
+                    rpy="0 0 0" />
+            <mass
+                    value="0.1072" />
+            <inertia
+                    ixx="1.6230427070624E-05"
+                    ixy="-2.24782250481838E-07"
+                    ixz="2.25029030623655E-07"
+                    iyy="2.75097004184363E-05"
+                    iyz="-3.73269013550268E-09"
+                    izz="2.69381077131879E-05" />
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/left_ankle_link.STL" />
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/left_ankle_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint
+            name="left_ankle_joint"
+            type="revolute">
+        <origin
+                xyz="0 -0.13 0"
+                rpy="3.1416 0 -1.8026" />
+        <parent
+                link="left_shin_link" />
+        <child
+                link="left_ankle_link" />
+        <axis
+                xyz="0 0 1" />
+        <limit
+                lower="-3.14"
+                upper="3.14"
+                effort="2"
+                velocity="0.5" />
+    </joint>
+
+    <transmission name="trans_left_ankle">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="left_ankle_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor_left_ankle">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <link
+            name="left_foot_link">
+        <inertial>
+            <origin
+                    xyz="9.91363935387568E-12 -0.039654197781679 -0.0253797103440415"
+                    rpy="0 0 0" />
+            <mass
+                    value="0.1435" />
+            <inertia
+                    ixx="0.000200660993762869"
+                    ixy="2.59319983834851E-16"
+                    ixz="2.26686514882574E-15"
+                    iyy="0.000207009674728983"
+                    iyz="-8.71443997911782E-06"
+                    izz="7.7405804632103E-05" />
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/left_foot_link.STL" />
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh
+                        filename="package://rocnikovy_projekt/meshes/left_foot_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint
+            name="left_foot_joint"
+            type="revolute">
+        <origin
+                xyz="-0.0225 0 -0.00075"
+                rpy="1.5708 -1.5582 0" />
+        <parent
+                link="left_ankle_link" />
+        <child
+                link="left_foot_link" />
+        <axis
+                xyz="0 0 1" />
+        <limit
+                lower="-3.14"
+                upper="3.14"
+                effort="2"
+                velocity="0.5" />
+    </joint>
+
+    <transmission name="trans_left_foot">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="left_foot_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor_left_foot">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+</robot>

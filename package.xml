@@ -2,7 +2,7 @@
 <package>
   <name>rocnikovy_projekt</name>
   <version>0.0.0</version>
-  <description>The mrm_description package</description>
+  <description>Rocnikovy projekt</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->
@@ -45,6 +45,15 @@
   <build_depend>joint_state_controller</build_depend>
   <build_depend>robot_state_publisher</build_depend>
   <build_depend>urdf</build_depend>
+
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msg</build_depend>
+  <build_depend>message_generation</build_depend>
+
+  <run_depend>rospy</run_depend>
+  <run_depend>rostime</run_depend>
+  <run_depend>std_msg</run_depend>
+  <run_depend>message_runtime</run_depend>
   
   <run_depend>controller_manager</run_depend>
   <run_depend>joint_state_controller</run_depend>

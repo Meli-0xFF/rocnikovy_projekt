@@ -4,19 +4,98 @@ joint_state_controller:
   publish_rate: 50
 
 # Position Controllers ---------------------------------------
-joint1_position_controller:
-  type: "position_controllers/JointPositionController"
-  joint: servo1_joint
+left_hip_position_controller:
+  type: "effort_controllers/JointPositionController"
+  joint: left_hip_joint
   pid:
     p: 2.0
     i: 0.5
     d: 0.0
 
-joint2_position_controller:
-  type: "position_controllers/JointPositionController"
-  joint: hub2_joint
+left_hip_servo_position_controller:
+  type: "effort_controllers/JointPositionController"
+  joint: left_hip_servo_joint
   pid:
     p: 2.0
     i: 0.5
     d: 0.0
 
+left_thigh_position_controller:
+  type: "effort_controllers/JointPositionController"
+  joint: left_thigh_joint
+  pid:
+    p: 2.0
+    i: 0.5
+    d: 0.0
+
+left_shin_position_controller:
+  type: "effort_controllers/JointPositionController"
+  joint: left_shin_joint
+  pid:
+    p: 2.0
+    i: 0.5
+    d: 0.0
+
+left_ankle_position_controller:
+  type: "effort_controllers/JointPositionController"
+  joint: left_ankle_joint
+  pid:
+    p: 2.0
+    i: 0.5
+    d: 0.0
+
+left_foot_position_controller:
+  type: "effort_controllers/JointPositionController"
+  joint: left_foot_joint
+  pid:
+    p: 2.0
+    i: 0.5
+    d: 0.0
+
+right_hip_position_controller:
+  type: "effort_controllers/JointPositionController"
+  joint: right_hip_joint
+  pid:
+    p: 2.0
+    i: 0.5
+    d: 0.0
+
+right_hip_servo_position_controller:
+  type: "effort_controllers/JointPositionController"
+  joint: right_hip_servo_joint
+  pid:
+    p: 2.0
+    i: 0.5
+    d: 0.0
+
+right_thigh_position_controller:
+  type: "effort_controllers/JointPositionController"
+  joint: right_thigh_joint
+  pid:
+    p: 2.0
+    i: 0.5
+    d: 0.0
+
+right_shin_position_controller:
+  type: "effort_controllers/JointPositionController"
+  joint: right_shin_joint
+  pid:
+    p: 2.0
+    i: 0.5
+    d: 0.0
+
+right_ankle_position_controller:
+  type: "effort_controllers/JointPositionController"
+  joint: right_ankle_joint
+  pid:
+    p: 2.0
+    i: 0.5
+    d: 0.0
+
+right_foot_position_controller:
+  type: "effort_controllers/JointPositionController"
+  joint: right_foot_joint
+  pid:
+    p: 2.0
+    i: 0.5
+    d: 0.0
